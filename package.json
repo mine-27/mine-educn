@@ -1,0 +1,24 @@
+{
+  "name": "mine-educn-theme",
+  "version": "1.1.0",
+  "description": "WordPress FSE theme for online education, powered by TailwindCSS",
+  "scripts": {
+    "start": "npm-run-all --parallel start:js start:css",
+    "start:js": "wp-scripts start --webpack-copy-php --output-path=assets/js",
+    "start:css": "tailwindcss -i ./src/tailwind.css -o ./assets/css/global.css --watch",
+    "build": "npm-run-all --parallel build:js build:css",
+    "build:js": "wp-scripts build --webpack-copy-php --output-path=assets/js",
+    "build:css": "tailwindcss build -i ./src/tailwind.css -o ./assets/css/global.css --minify",
+    "format": "wp-scripts format",
+    "lint:js": "wp-scripts lint-js",
+    "check-engines": "wp-scripts check-engines",
+		"packages-update": "wp-scripts packages-update"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.21.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.4.19",
+    "npm-run-all": "^4.1.5"
+  }
+}

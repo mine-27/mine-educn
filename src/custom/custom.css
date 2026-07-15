@@ -1,0 +1,294 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@layer utilities {
+    .transition-custom {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .medu-header{
+        @apply tw-absolute tw-w-full tw-z-50 tw-top-auto transition-custom tw-duration-300 tw-shadow-sm;
+        .medu-header-inner{
+            @apply tw-items-stretch tw-content-center;
+            .wp-block-navigation__responsive-container, .wp-block-navigation__responsive-close, .wp-block-navigation__responsive-dialog, .wp-block-navigation__responsive-container-content{
+                @apply tw-h-full wpmobile:tw-h-auto;
+            }
+            ul.wp-block-navigation__container{
+                @apply tw-flex tw-items-stretch tw-content-center tw-h-full;
+            }
+            .wp-block-navigation .wp-block-navigation-item{
+                @apply tw-h-full tw-px-3;
+                a{
+                    @apply tw-no-underline;
+                    &:hover{
+                        color: var(--wp--preset--color--main-2);
+                    }
+                }
+            }
+            ul.wp-block-navigation__submenu-container{
+                @apply tw-absolute tw-left-0 tw-rounded-b-md tw-border-0 tw-shadow-lg tw-px-0 tw-py-0 transition-custom tw-duration-300 tw-transform tw-invisible group-hover:tw-visible;
+            }
+            ul.wp-block-navigation__submenu-container .wp-block-navigation-item{
+                @apply tw-px-0 tw-rounded-md;
+                .wp-block-navigation-item__content{
+                    @apply tw-px-4 tw-py-3;
+                }
+            }
+            ul.wp-block-navigation__submenu-container .wp-block-navigation-item a:hover{
+                background-color: rgb(from var(--wp--preset--color--main-2) r g b/5%);
+            }
+            .current-menu-ancestor:after, .current-menu-item:after{
+                content: '';
+                background-color: var(--wp--preset--color--main-2);
+                width: -webkit-fill-available;
+                @apply tw-block tw-h-1 tw-rounded-full tw-absolute tw-bottom-1 tw-left-0 tw-mx-3;
+            }
+            .wp-block-navigation__submenu-container .current-menu-item{
+                background-color: rgb(from var(--wp--preset--color--main-2) r g b/5%);
+                color: var(--wp--preset--color--main-2);
+                &::after{
+                    @apply tw-content-none;
+                }
+            }
+        }
+        
+    }
+    .medu-header.scrolled{
+        @apply tw-fixed wpmobile:tw-top-0;
+    }
+    .medu-title{
+        @apply tw-font-bold !tw-bg-clip-text tw-text-transparent;
+        a{
+            @apply tw-font-bold !tw-bg-clip-text tw-text-transparent;
+        }
+    }
+    /* 按钮悬停效果 向上抬起 */
+    .medu-btn-hover-up, .wp-block-button.is-style-fill{
+        @apply tw-shadow-lg hover:tw-shadow-xl tw-transform hover:tw--translate-y-1 transition-custom;
+    }
+    /* 按钮悬停效果 背景半透明 */
+    .medu-btn-hover-trans a, .wp-block-button.is-style-outline a{
+        @apply hover:tw-bg-white/10 transition-custom;
+    }
+    /* 向左倾斜的图片 */
+    .img-left{
+        img{
+            @apply tw-rounded-lg tw-shadow-2xl tw-w-full tw-max-w-full tw-h-auto tw-transform tw--rotate-3 hover:tw-rotate-0 transition-custom;
+        }
+    }
+    /* 向右倾斜的图片 */
+    .img-right{
+        img{
+            @apply tw-rounded-lg tw-shadow-2xl tw-w-full tw-max-w-full tw-h-auto tw-transform tw-rotate-3 hover:tw-rotate-0 transition-custom;
+        }
+    }
+    
+    /* 轮播 */
+    .medu-carousel{
+        @apply tw-relative tw-overflow-hidden;
+        .medu-carousel-content{
+            @apply tw-flex tw-transition-transform tw-duration-700 tw-ease-in-out;
+            .medu-carousel-item{
+                @apply tw-min-w-full tw-h-full;
+            }
+        }
+        .medu-carousel-btns{
+            @apply tw-absolute tw-top-1/2 tw-transform tw--translate-y-1/2 tw-h-10 tw-w-full;
+        }
+        /* 左右按钮 */
+        .medu-carousel-prev, .medu-carousel-next{
+            @apply tw-absolute tw-top-1/2 tw-transform tw--translate-y-1/2 tw-w-10 tw-h-10 tw-rounded-full tw-bg-white/30 tw-backdrop-blur-sm tw-text-white tw-flex tw-items-center tw-justify-center hover:tw-bg-white/50 transition-custom tw-z-10;
+        }
+        .medu-carousel-prev{
+            @apply tw-left-4;
+            a.wp-element-button{
+                @apply fa fa-chevron-left;
+            }
+        }
+        .medu-carousel-next{
+            @apply tw-right-4;
+            a.wp-element-button{
+                @apply fa fa-chevron-right;
+            }
+        }
+        /* 指示器 */
+        .medu-carousel-indicators{
+            @apply tw-absolute tw-bottom-6 tw-left-1/2 tw-transform tw--translate-x-1/2 tw-flex tw-space-x-2;
+            a.wp-element-button{
+                @apply tw-w-3 tw-h-3 tw-rounded-full tw-bg-white/50 hover:tw-bg-white transition-custom;
+            }
+            .active{
+                @apply tw-bg-white;
+            }
+        }
+    }
+    
+    /* FAQ 切换 */
+    .medu-faq-toggle{
+        .medu-faq-q{
+            @apply tw-cursor-pointer;
+        }
+        .medu-faq-icon{
+            @apply fa fa-chevron-down tw-transition-transform tw-duration-300;
+        }
+    }
+
+    .medu-body{
+        
+    }
+
+    /* 一些图标 */
+    .medu-icon{
+        @apply tw-mr-2;
+
+        &.check{
+            @apply fa fa-check;
+        }
+        &.check::before{
+            @apply tw-mr-2 tw-text-white tw-bg-green-500 tw-rounded-full tw-p-0.5 tw-text-xs;
+        }
+        &.yes{
+            @apply fa fa-check;
+        }
+        &.yes::before{
+            @apply tw-mr-2 tw-text-green-500;
+        }
+        &.no{
+            @apply fa fa-times;
+        }
+        &.no::before{
+            @apply tw-mr-3 tw-text-neutral-500;
+        }
+        &.wechat{
+            @apply fab fa-weixin;
+        }
+        &.qq{
+            @apply fab fa-qq;
+        }
+        &.wechat::before, &.qq::before{
+            @apply tw-mr-2 tw-text-white tw-rounded-full tw-p-1 tw-text-xs;
+            background-color: var(--wp--preset--color--main-2);
+        }
+        &.marker{
+            @apply fa fa-map-marker;
+        }
+        &.phone{
+            @apply fa fa-phone;
+        }
+        &.envelope{
+            @apply fa fa-envelope;
+        }
+        &.marker::before, &.phone::before, &.envelope::before{
+            @apply tw-mr-2;
+            color: var(--wp--preset--color--main-2);
+        }
+    }
+
+    .medu-cover{
+        img.wp-block-cover__image-background{
+            @apply tw-blur-2xl;
+        }
+    }
+    .wp-block-post-author{
+        .wp-block-post-author__avatar {
+            img{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+        }
+        .wp-block-post-author__content{
+            @apply tw-flex tw-items-center tw-gap-3;
+        }
+    }
+    .wp-block-query .wp-block-post{
+        @apply hover:tw-shadow-lg hover:tw--translate-y-1 transition-custom;
+    }
+}
+
+/* === 图标区块样式选择器（配合 register_block_style，非开发者可在编辑器侧边栏选图标） === */
+.is-style-medu-icon-check::before,
+.is-style-medu-icon-yes::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00c";
+    margin-right: 0.5rem;
+}
+.is-style-medu-icon-check::before {
+    color: #fff;
+    background-color: #22c55e;
+    border-radius: 9999px;
+    padding: 0.125rem;
+    font-size: 0.75rem;
+}
+.is-style-medu-icon-yes::before {
+    color: #22c55e;
+}
+.is-style-medu-icon-no::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00d";
+    margin-right: 0.75rem;
+    color: #737373;
+}
+.is-style-medu-icon-wechat::before,
+.is-style-medu-icon-qq::before {
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 400;
+    margin-right: 0.5rem;
+    color: #fff;
+    border-radius: 9999px;
+    padding: 0.25rem;
+    font-size: 0.75rem;
+    background-color: var(--wp--preset--color--main-2);
+}
+.is-style-medu-icon-wechat::before {
+    content: "\f1d7";
+}
+.is-style-medu-icon-qq::before {
+    content: "\f1d6";
+}
+.is-style-medu-icon-marker::before,
+.is-style-medu-icon-phone::before,
+.is-style-medu-icon-envelope::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 0.5rem;
+    color: var(--wp--preset--color--main-2);
+}
+.is-style-medu-icon-marker::before {
+    content: "\f041";
+}
+.is-style-medu-icon-phone::before {
+    content: "\f095";
+}
+.is-style-medu-icon-envelope::before {
+    content: "\f0e0";
+}
+
+/* === Icon Text 区块样式 === */
+.is-style-medu-icon {
+    display: flex;
+    align-items: center;
+}
+.is-style-medu-icon::before {
+    color: var(--medu-icon-color, inherit);
+    background-color: var(--medu-icon-bg, transparent);
+    font-size: var(--medu-icon-size, inherit);
+    margin-right: var(--medu-icon-margin, 0.5rem);
+    flex-shrink: 0;
+    line-height: 1;
+    border-radius: 4px;
+    padding: 0 2px;
+}
+
+/* 行内图标（registerFormatType 插入的 span） */
+.medu-inline-icon[data-family="solid"] {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+.medu-inline-icon[data-family="regular"] {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+}
+.medu-inline-icon[data-family="brands"] {
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 400;
+}

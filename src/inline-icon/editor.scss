@@ -1,0 +1,45 @@
+/* === 行内图标插入弹窗 === */
+.medu-inline-search {
+    margin-bottom: 12px;
+}
+
+.medu-inline-modal-content {
+    display: flex;
+    flex-direction: column;
+    max-height: 70vh;
+    padding: 8px 0;
+}
+
+/* 图标网格 — 紧凑版（纯图标，无文字标签） */
+.medu-inline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+    gap: 4px;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding: 4px;
+}
+
+.medu-inline-grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.medu-inline-grid-item:hover {
+    background: #f0f6ff;
+    border-color: #c5d9f7;
+}
+
+.medu-inline-grid-icon {
+    font-size: 20px;
+    line-height: 1;
+    pointer-events: none;
+}

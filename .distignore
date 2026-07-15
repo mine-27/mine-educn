@@ -1,0 +1,105 @@
+.distignore
+*.yml
+PHP Charting Libraries.txt
+*.sarif
+.github_changelog_generator
+.tool-versions
+*.LESSER
+*.neon
+*.dist
+LICENSE
+COPYING
+
+# -------------------------- 版本控制文件 --------------------------
+.git/
+.gitignore
+.gitattributes
+.svn/
+.hg/
+.hgignore
+
+# -------------------------- 开发工具配置 --------------------------
+.idea/
+.vscode/
+*.sublime-*
+.editorconfig
+.eslintrc.js
+.eslintignore
+.prettierrc
+.prettierignore
+.stylelintrc
+.stylelintignore
+gruntfile.js
+gulpfile.js
+webpack.config.js
+vite.config.js
+
+# -------------------------- 依赖配置/源文件 --------------------------
+node_modules/
+composer.json
+composer.lock
+package.json
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bower.json
+bower_components/
+
+# -------------------------- 测试文件 --------------------------
+tests/
+phpunit.xml
+phpunit.xml.dist
+jest.config.js
+*.test.js
+*.spec.js
+*.spec.php
+tests-config.php
+.travis.yml
+.github/
+.gitlab/
+.gitpod.yml
+
+# -------------------------- 临时/缓存/系统文件 --------------------------
+*.log
+*.swp
+*.bak
+*.tmp
+~*
+.DS_Store
+Thumbs.db
+.htaccess.bak
+nginx.conf
+apache.conf
+.env
+.env.*
+.env.local
+.env.example
+*.zip
+*.tar.gz
+*.rar
+
+# -------------------------- 开发文档/冗余文件 --------------------------
+README-dev.md
+CHANGELOG-dev.md
+docs/
+examples/
+demo/
+screenshots/
+backup/
+cache/
+tmp/
+build/
+src/  # 若src是未编译源码，编译后输出到dist/assets再打包
+coverage/
+.phpcs.xml
+.phpcs.xml.dist
+.lintstagedrc
+.commitlintrc.js
+
+# -------------------------- 其他冗余 --------------------------
+*.sh
+*.bat
+*.cmd
+Dockerfile
+docker-compose.yml
+Makefile

@@ -1,0 +1,29 @@
+# 依赖
+node_modules/
+
+# 构建产物
+build/
+dist/
+
+# 日志
+*.log
+npm-debug.log*
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# 环境变量
+.env
+.env.local
+
+# 操作系统
+*.swp
+*.swo
+*~
